@@ -1,0 +1,669 @@
+package projects.chapter01.figures;
+import java.awt.Color;
+
+/**
+ * Write a description of class Ficha here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class Ficha
+{
+    // instance variables - replace the example below with your own
+    // Variables que determina la ficha, el color de cada valor numerico, y la cantidad de
+    // de puntos
+    private int ladoIzquierdo;
+    private int ladoDerecho;
+    private String ladoIzquierdoColor;
+    private String ladoDerechoColor;
+    private Square cuadroSuperiorNegro;
+    private Square cuadroInferiorNegro;
+    private Square cuadroSuperiorBlanco;
+    private Square cuadroInferiorBlanco;
+    private boolean banderaDeGiro = false;
+    private boolean banderaDeOriginal = true;
+    private boolean bocaArriba = false;
+    private boolean ladoFicha = false;
+    private boolean cuadrosBlancos = false;
+    private Square punto1Izquierdo;
+    private Square punto2Izquierdo;
+    private Square punto3Izquierdo;
+    private Square punto4Izquierdo;
+    private Square punto5Izquierdo;
+    private Square punto6Izquierdo;
+    private Square punto0Izquierdo;
+    private Square punto1Derecho;
+    private Square punto2Derecho;
+    private Square punto3Derecho;
+    private Square punto4Derecho;
+    private Square punto5Derecho;
+    private Square punto6Derecho;
+    private Square punto0Derecho;
+    private Square cuadroBlanco2;
+    private Square cuadroBlanco1;
+
+    /**
+     * Constructor for objects of class Ficha
+     */
+    public Ficha()
+    {
+        // En este constructor, se determina que sea una ficha Nula, que quiere
+        // decir que será cero de ambos lados.
+        ladoIzquierdo = 0;
+        ladoDerecho = 0;
+        ladoIzquierdoColor = "white";
+        ladoDerechoColor = "white";
+        cuadroSuperiorNegro = new Square();
+        cuadroSuperiorNegro.changeColor("black");
+        cuadroInferiorNegro = new Square();
+        cuadroInferiorNegro.changeColor("black");
+        cuadroSuperiorBlanco = new Square();
+        cuadroSuperiorBlanco.changeColor("white");
+        cuadroInferiorBlanco = new Square();
+        cuadroInferiorBlanco.changeColor("white");
+        cuadroSuperiorBlanco.changeSize(58);
+        cuadroInferiorBlanco.changeSize(55);
+        cuadroSuperiorBlanco.changeSize(55);
+        cuadroSuperiorNegro.makeVisible();
+        cuadroInferiorNegro.makeVisible();
+        cuadroSuperiorBlanco.makeVisible();
+        cuadroInferiorBlanco.makeVisible();
+        cuadroInferiorNegro.setPosicion(0,60); // (0,60)
+        cuadroInferiorBlanco.setPosicion(2,62);
+        cuadroSuperiorBlanco.setPosicion(2,2);
+    }
+    
+    public Ficha(int puntosLadoIzquierdo, int puntosLadoDerecho){
+        // Variables que ayudaran a auxiliar el numero de la ficha y su color,
+        // el usuario podrá elegir que puntos tendra la ficha o el objeto.
+        this.ladoIzquierdo = puntosLadoIzquierdo;
+        this.ladoDerecho = puntosLadoDerecho;
+        this.ladoIzquierdoColor = asignarColor(puntosLadoIzquierdo);
+        this.ladoDerechoColor = asignarColor(puntosLadoDerecho);
+        
+        // Construccion de la ficha
+        cuadroSuperiorNegro = new Square();
+        cuadroSuperiorNegro.changeColor("black");
+        cuadroInferiorNegro = new Square();
+        cuadroInferiorNegro.changeColor("black");
+        cuadroSuperiorBlanco = new Square();
+        cuadroSuperiorBlanco.changeColor("white");
+        cuadroInferiorBlanco = new Square();
+        cuadroInferiorBlanco.changeColor("white");
+        //cuadroSuperiorBlanco.changeSize(58);
+        cuadroInferiorBlanco.changeSize(55);
+        cuadroSuperiorBlanco.changeSize(55);
+        cuadroSuperiorNegro.makeVisible();
+        cuadroInferiorNegro.makeVisible();
+        cuadroSuperiorBlanco.makeVisible();
+        cuadroInferiorBlanco.makeVisible();
+        cuadroInferiorNegro.setPosicion(0,60);
+        cuadroInferiorBlanco.setPosicion(2,62);
+        cuadroSuperiorBlanco.setPosicion(2,2);
+        
+        
+        // Dibujar puntos del lado Izquierdo
+        switch(puntosLadoIzquierdo){
+            case 0:
+                punto0Izquierdo = new Square();
+                punto0Izquierdo.makeVisible();
+                punto0Izquierdo.changeSize(10);
+                punto0Izquierdo.changeColor(this.ladoIzquierdoColor);
+                punto0Izquierdo.setPosicion(23,23);
+                break;
+                
+            case 1:
+                punto1Izquierdo = new Square();
+                punto1Izquierdo.makeVisible();
+                punto1Izquierdo.changeSize(10);
+                punto1Izquierdo.changeColor(this.ladoIzquierdoColor);
+                punto1Izquierdo.setPosicion(23,23);
+                break;
+            
+            case 2:
+                punto1Izquierdo = new Square();
+                punto1Izquierdo.makeVisible();
+                punto1Izquierdo.changeSize(10);
+                punto1Izquierdo.changeColor(this.ladoIzquierdoColor);
+                punto1Izquierdo.setPosicion(12,10);
+                punto2Izquierdo = new Square();
+                punto2Izquierdo.makeVisible();
+                punto2Izquierdo.changeSize(10);
+                punto2Izquierdo.changeColor(this.ladoIzquierdoColor);
+                punto2Izquierdo.setPosicion(35,35);
+                break;
+                
+            case 3:
+                punto1Izquierdo = new Square();
+                punto1Izquierdo.makeVisible();
+                punto1Izquierdo.changeSize(10);
+                punto1Izquierdo.changeColor(this.ladoIzquierdoColor);
+                punto1Izquierdo.setPosicion(12,10);
+                punto2Izquierdo = new Square();
+                punto2Izquierdo.makeVisible();
+                punto2Izquierdo.changeSize(10);
+                punto2Izquierdo.changeColor(this.ladoIzquierdoColor);
+                punto2Izquierdo.setPosicion(35,35);
+                punto3Izquierdo = new Square();
+                punto3Izquierdo.makeVisible();
+                punto3Izquierdo.changeSize(10);
+                punto3Izquierdo.changeColor(this.ladoIzquierdoColor);
+                punto3Izquierdo.setPosicion(23,23);
+                break;
+                
+            case 4:
+                punto1Izquierdo = new Square();
+                punto1Izquierdo.makeVisible();
+                punto1Izquierdo.changeSize(10);
+                punto1Izquierdo.changeColor(this.ladoIzquierdoColor);
+                punto1Izquierdo.setPosicion(12,10);
+                punto2Izquierdo = new Square();
+                punto2Izquierdo.makeVisible();
+                punto2Izquierdo.changeSize(10);
+                punto2Izquierdo.changeColor(this.ladoIzquierdoColor);
+                punto2Izquierdo.setPosicion(35,35);
+                punto3Izquierdo = new Square();
+                punto3Izquierdo.makeVisible();
+                punto3Izquierdo.changeSize(10);
+                punto3Izquierdo.changeColor(this.ladoIzquierdoColor);
+                punto3Izquierdo.setPosicion(12,35);
+                punto4Izquierdo = new Square();
+                punto4Izquierdo.makeVisible();
+                punto4Izquierdo.changeSize(10);
+                punto4Izquierdo.changeColor(this.ladoIzquierdoColor);
+                punto4Izquierdo.setPosicion(35,10);
+                break;
+            
+            case 5:
+                punto1Izquierdo = new Square();
+                punto1Izquierdo.makeVisible();
+                punto1Izquierdo.changeSize(10);
+                punto1Izquierdo.changeColor(this.ladoIzquierdoColor);
+                punto1Izquierdo.setPosicion(12,10);
+                punto2Izquierdo = new Square();
+                punto2Izquierdo.makeVisible();
+                punto2Izquierdo.changeSize(10);
+                punto2Izquierdo.changeColor(this.ladoIzquierdoColor);
+                punto2Izquierdo.setPosicion(35,35);
+                punto3Izquierdo = new Square();
+                punto3Izquierdo.makeVisible();
+                punto3Izquierdo.changeSize(10);
+                punto3Izquierdo.changeColor(this.ladoIzquierdoColor);
+                punto3Izquierdo.setPosicion(12,35);
+                punto4Izquierdo = new Square();
+                punto4Izquierdo.makeVisible();
+                punto4Izquierdo.changeSize(10);
+                punto4Izquierdo.changeColor(this.ladoIzquierdoColor);
+                punto4Izquierdo.setPosicion(35,10);
+                punto5Izquierdo = new Square();
+                punto5Izquierdo.makeVisible();
+                punto5Izquierdo.changeSize(10);
+                punto5Izquierdo.changeColor(this.ladoIzquierdoColor);
+                punto5Izquierdo.setPosicion(23,23);
+                break;
+            
+            case 6:
+                punto1Izquierdo = new Square();
+                punto1Izquierdo.makeVisible();
+                punto1Izquierdo.changeSize(10);
+                punto1Izquierdo.changeColor(this.ladoIzquierdoColor);
+                punto1Izquierdo.setPosicion(12,10);
+                punto2Izquierdo = new Square();
+                punto2Izquierdo.makeVisible();
+                punto2Izquierdo.changeSize(10);
+                punto2Izquierdo.changeColor(this.ladoIzquierdoColor);
+                punto2Izquierdo.setPosicion(35,35);
+                punto3Izquierdo = new Square();
+                punto3Izquierdo.makeVisible();
+                punto3Izquierdo.changeSize(10);
+                punto3Izquierdo.changeColor(this.ladoIzquierdoColor);
+                punto3Izquierdo.setPosicion(12,35);
+                punto4Izquierdo= new Square();
+                punto4Izquierdo.makeVisible();
+                punto4Izquierdo.changeSize(10);
+                punto4Izquierdo.changeColor(this.ladoIzquierdoColor);
+                punto4Izquierdo.setPosicion(35,10);
+                punto5Izquierdo= new Square();
+                punto5Izquierdo.makeVisible();
+                punto5Izquierdo.changeSize(10);
+                punto5Izquierdo.changeColor(this.ladoIzquierdoColor);
+                punto5Izquierdo.setPosicion(35,23);
+                punto6Izquierdo = new Square();
+                punto6Izquierdo.makeVisible();
+                punto6Izquierdo.changeSize(10);
+                punto6Izquierdo.changeColor(this.ladoIzquierdoColor);
+                punto6Izquierdo.setPosicion(12,23);
+                break;
+                
+        }
+        
+        // Dibujar puntos del lado Derecho
+        switch(puntosLadoDerecho){
+            case 0:
+                punto0Derecho = new Square();
+                punto0Derecho.makeVisible();
+                punto0Derecho.changeSize(10);
+                punto0Derecho.changeColor(this.ladoDerechoColor);
+                punto0Derecho.setPosicion(23,85);
+                break;
+                
+            case 1:
+                punto1Derecho = new Square();
+                punto1Derecho.makeVisible();
+                punto1Derecho.changeSize(10);
+                punto1Derecho.changeColor(this.ladoDerechoColor);
+                punto1Derecho.setPosicion(23,85);
+                break;
+            
+            case 2:
+                punto1Derecho = new Square();
+                punto1Derecho.makeVisible();
+                punto1Derecho.changeSize(10);
+                punto1Derecho.changeColor(this.ladoDerechoColor);
+                punto1Derecho.setPosicion(12,70);
+                punto2Derecho = new Square();
+                punto2Derecho.makeVisible();
+                punto2Derecho.changeSize(10);
+                punto2Derecho.changeColor(this.ladoDerechoColor);
+                punto2Derecho.setPosicion(35,95);
+                break;
+                
+            case 3:
+                punto1Derecho = new Square();
+                punto1Derecho.makeVisible();
+                punto1Derecho.changeSize(10);
+                punto1Derecho.changeColor(this.ladoDerechoColor);
+                punto1Derecho.setPosicion(12,70);
+                punto2Derecho = new Square();
+                punto2Derecho.makeVisible();
+                punto2Derecho.changeSize(10);
+                punto2Derecho.changeColor(this.ladoDerechoColor);
+                punto2Derecho.setPosicion(35,95);
+                punto3Derecho = new Square();
+                punto3Derecho.makeVisible();
+                punto3Derecho.changeSize(10);
+                punto3Derecho.changeColor(this.ladoDerechoColor);
+                punto3Derecho.setPosicion(23,83);
+                break;
+                
+            case 4:
+                punto1Derecho = new Square();
+                punto1Derecho.makeVisible();
+                punto1Derecho.changeSize(10);
+                punto1Derecho.changeColor(this.ladoDerechoColor);
+                punto1Derecho.setPosicion(12,70);
+                punto2Derecho = new Square();
+                punto2Derecho.makeVisible();
+                punto2Derecho.changeSize(10);
+                punto2Derecho.changeColor(this.ladoDerechoColor);
+                punto2Derecho.setPosicion(35,95);
+                punto3Derecho = new Square();
+                punto3Derecho.makeVisible();
+                punto3Derecho.changeSize(10);
+                punto3Derecho.changeColor(this.ladoDerechoColor);
+                punto3Derecho.setPosicion(12,95);
+                punto4Derecho = new Square();
+                punto4Derecho.makeVisible();
+                punto4Derecho.changeSize(10);
+                punto4Derecho.changeColor(this.ladoDerechoColor);
+                punto4Derecho.setPosicion(35,70);
+                break;
+            
+            case 5:
+                punto1Derecho = new Square();
+                punto1Derecho.makeVisible();
+                punto1Derecho.changeSize(10);
+                punto1Derecho.changeColor(this.ladoDerechoColor);
+                punto1Derecho.setPosicion(12,70);
+                punto2Derecho = new Square();
+                punto2Derecho.makeVisible();
+                punto2Derecho.changeSize(10);
+                punto2Derecho.changeColor(this.ladoDerechoColor);
+                punto2Derecho.setPosicion(35,95);
+                punto3Derecho = new Square();
+                punto3Derecho.makeVisible();
+                punto3Derecho.changeSize(10);
+                punto3Derecho.changeColor(this.ladoDerechoColor);
+                punto3Derecho.setPosicion(12,95);
+                punto4Derecho = new Square();
+                punto4Derecho.makeVisible();
+                punto4Derecho.changeSize(10);
+                punto4Derecho.changeColor(this.ladoDerechoColor);
+                punto4Derecho.setPosicion(35,70);
+                punto5Derecho = new Square();
+                punto5Derecho.makeVisible();
+                punto5Derecho.changeSize(10);
+                punto5Derecho.changeColor(this.ladoDerechoColor);
+                punto5Derecho.setPosicion(23,83);
+                break;
+            
+            case 6:
+                punto1Derecho = new Square();
+                punto1Derecho.makeVisible();
+                punto1Derecho.changeSize(10);
+                punto1Derecho.changeColor(this.ladoDerechoColor);
+                punto1Derecho.setPosicion(12,70);
+                punto2Derecho = new Square();
+                punto2Derecho.makeVisible();
+                punto2Derecho.changeSize(10);
+                punto2Derecho.changeColor(this.ladoDerechoColor);
+                punto2Derecho.setPosicion(35,95);
+                punto3Derecho = new Square();
+                punto3Derecho.makeVisible();
+                punto3Derecho.changeSize(10);
+                punto3Derecho.changeColor(this.ladoDerechoColor);
+                punto3Derecho.setPosicion(12,95);
+                punto4Derecho = new Square();
+                punto4Derecho.makeVisible();
+                punto4Derecho.changeSize(10);
+                punto4Derecho.changeColor(this.ladoDerechoColor);
+                punto4Derecho.setPosicion(35,70);
+                punto5Derecho = new Square();
+                punto5Derecho.makeVisible();
+                punto5Derecho.changeSize(10);
+                punto5Derecho.changeColor(this.ladoDerechoColor);
+                punto5Derecho.setPosicion(35,83);
+                punto6Derecho = new Square();
+                punto6Derecho.makeVisible();
+                punto6Derecho.changeSize(10);
+                punto6Derecho.changeColor(this.ladoDerechoColor);
+                punto6Derecho.setPosicion(12,83);
+                break;
+                
+        }
+    }
+    
+    /**
+     * En este metodo se determina o se asigna el color dependiendo del numero que elija el
+     * usuario.
+     */
+    
+    private String asignarColor(int puntos){
+        String colorDelLado = null;
+        
+        switch(puntos){
+            
+            case 0:
+                colorDelLado = "white";
+                break;
+            
+            case 1:
+                colorDelLado = "blue light";
+                break;
+            case 2:
+                colorDelLado = "green light";
+                break;
+            case 3:
+                colorDelLado = "brown";
+                break;
+            case 4:
+                colorDelLado = "orange";
+                break;
+            case 5:
+                colorDelLado = "magenta";
+                break;
+            case 6:
+                colorDelLado = "yellow";
+                break;
+            
+            default:
+                return null;
+                
+                
+        }
+        
+        return colorDelLado;
+        
+    }
+    
+    public String MostrarFichaEnConsola(){
+        return "[" + this.ladoIzquierdo + "|" + this.ladoDerecho + "]";
+    }
+
+    
+    /*
+     * En este metodo, hace que la ficha gire a 180 grados, pero solo podra hacerlo una
+     * sola vez ya que ya no seria 180 en ese caso, implementar un metodo que regrese el dado
+     * en su forma original.
+     */
+    public void girar180(){
+        
+        if(!banderaDeGiro){
+            this.cuadroSuperiorNegro.setPosicion(-60,60);
+            this.cuadroSuperiorBlanco.setPosicion(-58,60);
+            
+            switch(this.ladoIzquierdo){
+                case 0:
+                    punto0Izquierdo.setPosicion(-58,62);
+                    break;
+                case 1:
+                    punto1Izquierdo.setPosicion(-58,62);
+                    break;
+                case 2:
+                    punto1Izquierdo.setPosicion(-58,62);
+                    punto2Izquierdo.setPosicion(-58,62);
+                    break;
+                case 3:
+                    punto1Izquierdo.setPosicion(-58,62);
+                    punto2Izquierdo.setPosicion(-58,62);
+                    punto3Izquierdo.setPosicion(-58,62);
+                    break;
+                case 4:
+                    punto1Izquierdo.setPosicion(-58,62);
+                    punto2Izquierdo.setPosicion(-58,62);
+                    punto3Izquierdo.setPosicion(-58,62);
+                    punto4Izquierdo.setPosicion(-58,62);
+                    break;
+                    
+                case 5:
+                    punto1Izquierdo.setPosicion(-58,62);
+                    punto2Izquierdo.setPosicion(-58,62);
+                    punto3Izquierdo.setPosicion(-58,62);
+                    punto4Izquierdo.setPosicion(-58,62);
+                    punto5Izquierdo.setPosicion(-58,62);
+                    break;
+                    
+                case 6:
+                    punto1Izquierdo.setPosicion(-58,62);
+                    punto2Izquierdo.setPosicion(-58,62);
+                    punto3Izquierdo.setPosicion(-58,62);
+                    punto4Izquierdo.setPosicion(-58,62);
+                    punto5Izquierdo.setPosicion(-58,62);
+                    punto6Izquierdo.setPosicion(-58,62);
+                    break;
+
+            }
+            
+            banderaDeGiro = true;
+            banderaDeOriginal = false;
+        }
+    }
+    
+    public void regresarOriginal() {
+        // Restaurar los valores originales
+        if(!banderaDeOriginal){
+            this.cuadroSuperiorNegro.setPosicion(60,-60);
+            this.cuadroSuperiorBlanco.setPosicion(58,-60);
+            
+            switch(this.ladoIzquierdo){
+                case 0:
+                    punto0Izquierdo.setPosicion(58,-62);
+                    break;
+                
+                case 1:
+                    punto1Izquierdo.setPosicion(58,-62);
+                    break;
+                
+                case 2:
+                    punto1Izquierdo.setPosicion(58,-62);
+                    punto2Izquierdo.setPosicion(58,-62);
+                    break;
+                    
+                case 3:
+                    punto1Izquierdo.setPosicion(58,-62);
+                    punto2Izquierdo.setPosicion(58,-62);
+                    punto3Izquierdo.setPosicion(58,-62);
+                    break;
+                    
+                case 4:
+                    punto1Izquierdo.setPosicion(58,-62);
+                    punto2Izquierdo.setPosicion(58,-62);
+                    punto3Izquierdo.setPosicion(58,-62);
+                    punto4Izquierdo.setPosicion(58,-62);
+                    break;
+                
+                case 5:
+                    punto1Izquierdo.setPosicion(58,-62);
+                    punto2Izquierdo.setPosicion(58,-62);
+                    punto3Izquierdo.setPosicion(58,-62);
+                    punto4Izquierdo.setPosicion(58,-62);
+                    punto5Izquierdo.setPosicion(58,-62);
+                    break;
+                
+                case 6:
+                    punto1Izquierdo.setPosicion(58,-62);
+                    punto2Izquierdo.setPosicion(58,-62);
+                    punto3Izquierdo.setPosicion(58,-62);
+                    punto4Izquierdo.setPosicion(58,-62);
+                    punto5Izquierdo.setPosicion(58,-62);
+                    punto6Izquierdo.setPosicion(58,-62);
+                    break;
+                    
+            }
+            
+            banderaDeGiro = false; // Marcar que la ficha ha vuelto a su forma original
+            banderaDeOriginal = true;
+        }
+    }
+    
+    public void ponerDeLadoLaFicha(){
+        if(!ladoFicha){
+            
+            this.cuadroBlanco1 = new Square();
+            cuadroBlanco1.makeVisible();
+            cuadroBlanco1.changeColor("white");
+            cuadroBlanco1.setPosicion(-2,0);
+            this.cuadroBlanco2 = new Square();
+            cuadroBlanco2.makeVisible();
+            cuadroBlanco2.changeColor("white");
+            cuadroBlanco2.setPosicion(-2,60);
+            
+            cuadrosBlancos = true;
+            ladoFicha = true;
+            bocaArriba = false;
+        }
+    }
+    
+    public void ponerBocaArriba(){
+        if(!bocaArriba){
+            
+            if(cuadrosBlancos){
+                
+                this.cuadroBlanco1.erase();
+                this.cuadroBlanco2.erase();
+            }
+            
+            cuadrosBlancos = false;
+            bocaArriba = true;
+            ladoFicha = false;
+        }
+    }
+    
+    public void posicionarFicha(int posicionX, int posicionY){
+        cuadroSuperiorNegro.setPosicion(posicionX,posicionY);
+        cuadroInferiorNegro.setPosicion(posicionX,posicionY);
+        cuadroSuperiorBlanco.setPosicion(posicionX,posicionY);
+        cuadroInferiorBlanco.setPosicion(posicionX,posicionY);
+        
+        switch(this.ladoIzquierdo){
+            case 0:
+                punto0Izquierdo.setPosicion(posicionX,posicionY);
+                break;
+            
+            case 1:
+                punto1Izquierdo.setPosicion(posicionX,posicionY);
+                break;
+            
+            case 2:
+                punto1Izquierdo.setPosicion(posicionX,posicionY);
+                punto2Izquierdo.setPosicion(posicionX,posicionY);
+                break;
+                
+            case 3:
+                punto1Izquierdo.setPosicion(posicionX,posicionY);
+                punto2Izquierdo.setPosicion(posicionX,posicionY);
+                punto3Izquierdo.setPosicion(posicionX,posicionY);
+                break;
+                
+            case 4:
+                punto1Izquierdo.setPosicion(posicionX,posicionY);
+                punto2Izquierdo.setPosicion(posicionX,posicionY);
+                punto3Izquierdo.setPosicion(posicionX,posicionY);
+                punto4Izquierdo.setPosicion(posicionX,posicionY);
+                break;
+            
+            case 5:
+                punto1Izquierdo.setPosicion(posicionX,posicionY);
+                punto2Izquierdo.setPosicion(posicionX,posicionY);
+                punto3Izquierdo.setPosicion(posicionX,posicionY);
+                punto4Izquierdo.setPosicion(posicionX,posicionY);
+                punto5Izquierdo.setPosicion(posicionX,posicionY);
+                break;
+            
+            case 6:
+                punto1Izquierdo.setPosicion(posicionX,posicionY);
+                punto2Izquierdo.setPosicion(posicionX,posicionY);
+                punto3Izquierdo.setPosicion(posicionX,posicionY);
+                punto4Izquierdo.setPosicion(posicionX,posicionY);
+                punto5Izquierdo.setPosicion(posicionX,posicionY);
+                punto6Izquierdo.setPosicion(posicionX,posicionY);
+                break;
+                    
+            }
+            
+        switch(this.ladoDerecho){
+            case 0:
+                punto0Derecho.setPosicion(posicionX,posicionY);
+                break;
+            
+            case 1:
+                punto1Derecho.setPosicion(posicionX,posicionY);
+                break;
+            
+            case 2:
+                punto1Derecho.setPosicion(posicionX,posicionY);
+                punto2Derecho.setPosicion(posicionX,posicionY);
+                break;
+                
+            case 3:
+                punto1Derecho.setPosicion(posicionX,posicionY);
+                punto2Derecho.setPosicion(posicionX,posicionY);
+                punto3Derecho.setPosicion(posicionX,posicionY);
+                break;
+                
+            case 4:
+                punto1Derecho.setPosicion(posicionX,posicionY);
+                punto2Derecho.setPosicion(posicionX,posicionY);
+                punto3Derecho.setPosicion(posicionX,posicionY);
+                punto4Derecho.setPosicion(posicionX,posicionY);
+                break;
+            
+            case 5:
+                punto1Derecho.setPosicion(posicionX,posicionY);
+                punto2Derecho.setPosicion(posicionX,posicionY);
+                punto3Derecho.setPosicion(posicionX,posicionY);
+                punto4Derecho.setPosicion(posicionX,posicionY);
+                punto5Derecho.setPosicion(posicionX,posicionY);
+                break;
+            
+            case 6:
+                punto1Derecho.setPosicion(posicionX,posicionY);
+                punto2Derecho.setPosicion(posicionX,posicionY);
+                punto3Derecho.setPosicion(posicionX,posicionY);
+                punto4Derecho.setPosicion(posicionX,posicionY);
+                punto5Derecho.setPosicion(posicionX,posicionY);
+                punto6Derecho.setPosicion(posicionX,posicionY);
+                break;   
+        }
+    }
+}
