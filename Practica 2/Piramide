@@ -1,0 +1,34 @@
+package projects.chapter01.figures;
+
+/*
+ * Esta Clase permite realizar solamente el metodo de imprimirPiramide
+ */
+public class Piramide {
+    
+    public Piramide(){
+        // No ocupa constructor
+    }
+    
+    
+    public void imprimirPiramideEnConsola()
+    {
+        int niveles = 7;
+        int posicionX = -160;
+        int posicionY = 240;
+        Ficha[] fichas = new Ficha[28];
+        int indiceDeFichas = 0;
+        
+        for(int i = 0; i < 7; i++){
+            for(int j = 0; j <= i; j++){
+                fichas[indiceDeFichas] = new Ficha(j,i);
+                fichas[indiceDeFichas].girar180();
+                fichas[indiceDeFichas].posicionarFicha(posicionX,posicionY);
+                indiceDeFichas++;
+                posicionY -= 62;
+            }
+            posicionY = 240;
+            posicionX += 122;
+        }
+        
+    }
+}
