@@ -1,0 +1,10 @@
+java
+gato
+casa
+sol
+nube
+flor
+agua
+jugo
+hola
+luna
